@@ -8,11 +8,13 @@ import {Provider} from 'react-redux'
 
 import accountReducer from './slices/accountSlice.jsx';
 import bonusReducer from './slices/bonusSlice.jsx';
+import rewardReducer from './reducers/reward.reducer.js'
 
 const store = configureStore({
   reducer: {
     account: accountReducer,
     bonus: bonusReducer,
+    reward: rewardReducer
   }
 })
 

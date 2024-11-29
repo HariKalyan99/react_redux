@@ -1,4 +1,7 @@
-import {createSlice} from '@reduxjs/toolkit'    
+import {createAction, createSlice} from '@reduxjs/toolkit'    
+
+const incrementByValue = createAction('reward/incrementByValue');
+
 
 
 const initialState = {
@@ -13,6 +16,13 @@ export const bonusSlice = createSlice({
         increment: (state) => {
             state.points += 1 //value changing directly via immer lib
         },
+    },
+    extraReducers:(builder) => {
+        builder.addCase(incrementByValue, (state, action) => {
+            if(action.payload>=100){
+                state.points+=10
+            }
+        })
     }
 })
 
